@@ -1,0 +1,7 @@
+# font:
+#   normal:
+#     family:
+
+
+import:
+  - ~/.config/alacritty/themes/nord_official.yaml 

@@ -1,0 +1,3 @@
+- nerd font
+- (optional) battery display for polybar
+
