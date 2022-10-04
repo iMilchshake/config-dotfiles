@@ -1,3 +1,4 @@
 - nerd font
 - (optional) battery display for polybar
-
+- i3 vim keybindings!
+- firefox nord theme?
