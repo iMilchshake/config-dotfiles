@@ -1,6 +1,6 @@
-# font:
-#   normal:
-#     family:
+font:
+  normal:
+    family: Cousine Nerd Font
 
 window:
   opacity: 0.9
