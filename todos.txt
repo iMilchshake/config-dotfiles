@@ -3,4 +3,3 @@
     - move to a seperate file for better readability?
 - firefox nord theme?
 - use global variables (e.g. terminal, vm, ...)
-- update neofetch?
