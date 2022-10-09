@@ -221,7 +221,7 @@ for_window [window_role="task_dialog"] floating enable
 # exec_always --no-startup-id xrandr --output Virtual1 --mode 1920x1080  
 exec_always --no-startup-id nitrogen --restore &             # restore last wallpaper
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh  # bar
-exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf    # compositor
+exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf --experimental-backends # compositor
 
 # gaps and border
 gaps inner 10 
