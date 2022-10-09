@@ -1,4 +1,4 @@
 - i3 vim keybindings!
     - move to a seperate file for better readability?
-- firefox nord theme?
 - use global variables (e.g. terminal, vm, ...)
+- maybe try to add some kind of (invisible) caching for rofi?
