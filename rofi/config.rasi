@@ -7,7 +7,7 @@ configuration {
 /*	fixed-num-lines: true;*/
 /*	show-icons: false;*/
 /*	terminal: "rofi-sensible-terminal";*/
-    terminal: "/home/tobi/.cargo/bin/alacritty";
+    terminal: "alacritty";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
     run-command: "{cmd}";
@@ -152,10 +152,10 @@ configuration {
   font: "Cousine Nerd 16";
   line-margin: 10;
 
-  display-ssh:    "";
+  display-ssh:    """;
   display-run:    "";
-  display-drun:   "";
-  display-window: "";
+  display-drun:   """;
+  display-window: """;
   display-combi:  "";
   show-icons:     true;
 }
