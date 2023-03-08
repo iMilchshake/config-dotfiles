@@ -34,9 +34,17 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# i3-alternating-layout
+exec --no-startup-id ~/repos/i3-alternating-layout/alternating_layouts.py
+
+# unclutter (hides cursor)
+exec --no-startup-id unclutter &
+
+# notification manager dunst
+exec --no-startup-id dunst
 
 # start powertop auto config
-# exec --no-statup-id sudo powertop --auto-tune 
+# exec --no-startup-id sudo powertop --auto-tune 
 # TODO: this doesnt work due to missing sudo rights...
 
 # Use pactl to adjust volume in PulseAudio.
