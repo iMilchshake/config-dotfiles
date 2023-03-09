@@ -58,6 +58,12 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% 
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
+# Media player controls (requires playerctl)
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioPause exec playerctl play-pause
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -69,12 +75,8 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+q kill
 
 # Scratchpad 
-# Make the currently focused window a scratchpad
 bindsym $mod+Shift+X move scratchpad
-# Show the first scratchpad window
 bindsym $mod+X scratchpad show
-# Show the sup-mail scratchpad window, if any.
-# bindsym mod4+s [title="^Sup ::"] scratchpad show
 
 # custom bindings
 bindsym $mod+ctrl+l exec --no-startup-id i3lock-fancy -t ""
@@ -106,7 +108,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# split in horizontal orientation 
 # bindsym $mod+h split h
 
 # split in vertical orientation
