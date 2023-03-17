@@ -60,9 +60,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Media player controls (requires playerctl)
 bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-# bindsym XF86AudioPause exec playerctl play-pause
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -83,6 +83,8 @@ bindsym $mod+ctrl+l exec --no-startup-id i3lock-fancy -t ""
 bindsym $mod+d exec --no-startup-id rofi -show
 bindsym $mod+shift+d exec --no-startup-id ~/.config/rofi/scripts/custom_menu.sh 
 bindsym $mod+ctrl+k exec --no-startup-id keepass2 --auto-type
+bindsym $mod+ctrl+shift+s exec --no-startup-id flameshot gui
+bindsym $mod+shift+s exec --no-startup-id flameshot gui -c -s
 
 # change focus
 bindsym $mod+h focus left
