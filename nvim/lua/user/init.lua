@@ -5,7 +5,6 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
         -- Configure AstroNvim updates
         updater = {
                 remote = "origin", -- remote to use
@@ -24,10 +23,8 @@ local config = {
                 --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
                 -- },
         },
-
         -- Set colorscheme to use
         colorscheme = "nord",
-
         -- Add highlight groups in any theme
         highlights = {
                 -- init = { -- this table overrides highlights in all themes
@@ -37,7 +34,6 @@ local config = {
                 --   Normal = { bg = "#000000" },
                 -- },
         },
-
         -- set vim options here (vim.<first_key>.<second_key> = value)
         options = {
                 opt = {
@@ -78,7 +74,6 @@ local config = {
                 "  ██  ██  ██ ██  ██  ██        ██    ██      ██      ",
                 "   ████   ██ ██      ██        ██    ███████ ██      ",
         },
-
         -- Default theme configuration
         default_theme = {
                 -- Modify the color palette for the default theme
@@ -87,7 +82,7 @@ local config = {
                         bg = "#1e222a",
                 },
                 highlights = function(hl) -- or a function that returns a new table of colors to set
-                        local C = require "default_theme.colors"
+                        local C = require("default_theme.colors")
 
                         hl.Normal = { fg = C.fg, bg = C.bg }
 
@@ -122,13 +117,11 @@ local config = {
                         ["which-key"] = true,
                 },
         },
-
         -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
         diagnostics = {
                 virtual_text = true,
                 underline = true,
         },
-
         -- Extend LSP configuration
         lsp = {
                 -- enable servers that you already have installed without mason
@@ -185,7 +178,6 @@ local config = {
                         -- },
                 },
         },
-
         -- Mapping data with "desc" stored directly by vim.keymap.set().
         --
         -- Please use this mappings table to set keyboard mapping since this is the
@@ -208,10 +200,15 @@ local config = {
                         -- ["<esc>"] = false,
                 },
         },
-
         -- Configure plugins
         plugins = {
                 init = {
+                        {
+                                "andrewferrier/wrapping.nvim",
+                                config = function()
+                                        require("wrapping").setup()
+                                end,
+                        },
                         {
                                 "shaunsingh/nord.nvim",
                                 config = function()
@@ -223,9 +220,10 @@ local config = {
                                         vim.g.nord_bold = false
                                 end,
                         },
-                        { "AlexvZyl/nordic.nvim",
+                        {
+                                "AlexvZyl/nordic.nvim",
                                 config = function()
-                                        require 'nordic'.setup {
+                                        require("nordic").setup({
                                                 -- Enable bold keywords.
                                                 bold_keywords = true,
                                                 -- Enable italic comments.
@@ -242,18 +240,18 @@ local config = {
                                                         -- Enable bold font in cursorline.
                                                         bold = false,
                                                         -- Avialable styles: 'dark', 'light'.
-                                                        theme = 'light',
+                                                        theme = "light",
                                                 },
                                                 noice = {
                                                         -- Available styles: `classic`, `flat`.
-                                                        style = 'flat'
+                                                        style = "flat",
                                                 },
                                                 telescope = {
                                                         -- Available styles: `classic`, `flat`.
-                                                        style = 'flat',
+                                                        style = "flat",
                                                 },
-                                        }
-                                end
+                                        })
+                                end,
                         },
 
                         -- You can disable default plugins as follows:
@@ -308,7 +306,6 @@ local config = {
                         -- ensure_installed = { "python" },
                 },
         },
-
         -- LuaSnip Options
         luasnip = {
                 -- Extend filetypes
@@ -321,7 +318,6 @@ local config = {
                         paths = {},
                 },
         },
-
         -- CMP Source Priorities
         -- modify here the priorities of default cmp sources
         -- higher value == higher priority
@@ -336,7 +332,6 @@ local config = {
                         path = 250,
                 },
         },
-
         -- Customize Heirline options
         heirline = {
                 -- -- Customize different separators between sections
@@ -362,7 +357,6 @@ local config = {
                 --   },
                 -- },
         },
-
         -- Modify which-key registration (Use this with mappings table in the above.)
         ["which-key"] = {
                 -- Add bindings which show up as group name
@@ -378,7 +372,6 @@ local config = {
                         },
                 },
         },
-
         -- This function is run last and is a good place to configuring
         -- augroups/autocommands and custom filetypes also this just pure lua so
         -- anything that doesn't fit in the normal config locations above can go here
