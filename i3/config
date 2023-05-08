@@ -79,7 +79,7 @@ bindsym $mod+Shift+X move scratchpad
 bindsym $mod+X scratchpad show
 
 # custom bindings
-bindsym $mod+ctrl+l exec --no-startup-id i3lock-fancy -t ""
+bindsym $mod+ctrl+l exec --no-startup-id i3lock-fancy-rapid 5 3
 bindsym $mod+d exec --no-startup-id rofi -show
 bindsym $mod+shift+d exec --no-startup-id ~/.config/rofi/scripts/custom_menu.sh 
 bindsym $mod+ctrl+k exec --no-startup-id keepass2 --auto-type
