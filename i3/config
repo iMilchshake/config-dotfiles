@@ -43,6 +43,9 @@ exec --no-startup-id unclutter &
 # notification manager dunst
 exec --no-startup-id dunst
 
+# run gsd-xsettings to match dark mode (https://www.reddit.com/r/i3wm/comments/kiy0v0/comment/gngcb5r/?utm_source=share&utm_medium=web2x&context=3)
+exec --no-startup-id /usr/lib/gsd-xsettings
+
 # start powertop auto config
 # exec --no-startup-id sudo powertop --auto-tune 
 # TODO: this doesnt work due to missing sudo rights...
@@ -178,7 +181,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec rofi -show power-menu -modi power-menu:rofi-power-menu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -229,6 +232,9 @@ gaps inner 0
 gaps outer 0 
 for_window[class=.*] border pixel 2
 hide_edge_borders smart
+
+# default workspaces
+assign [class="firefox"] 2
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4C566A #D8DEE9 #3B4252 #2e9ef4   #D8DEE9
