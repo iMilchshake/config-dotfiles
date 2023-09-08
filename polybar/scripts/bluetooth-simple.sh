@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Check if a device is connected by bluetooth using bluetoothctl
-info=$(bluetoothctl info | grep Device)
-device_name=$(bluetoothctl devices Connected | grep Device | cut -d ' ' -f 3-)
+info=$(bluetoothctl devices Connected | grep Device)
+device_name=$(echo "$info" | cut -d ' ' -f 3-)
 
 # Show some output when it is
 if echo "$info" | grep -q "Device"; 
