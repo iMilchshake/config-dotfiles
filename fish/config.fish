@@ -6,7 +6,7 @@ if status is-interactive
     alias night="brightnessctl set 1%;redshift -x;redshift -O 4800"
     alias uni="ranger /home/tobi/Documents/UniversitySync/current_semester"
     alias windoof="sudo grub-reboot 2;reboot"
-    # export GTK_THEME="Arc-Dark"
+    alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
     pyenv init - | source
     export PATH="$HOME/.cargo/bin:$PATH"
 end
