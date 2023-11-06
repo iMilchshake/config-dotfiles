@@ -9,4 +9,6 @@ if status is-interactive
     alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
     pyenv init - | source
     export PATH="$HOME/.cargo/bin:$PATH"
+    alias qs="nvim /home/tobi/data/quickshare/qs.txt"
 end
+
