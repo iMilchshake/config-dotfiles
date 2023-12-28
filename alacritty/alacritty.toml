@@ -1,0 +1,16 @@
+import = ["/home/tobi/.config/alacritty/themes/nord.toml"]
+live_config_reload = true
+
+[font.bold]
+family = "Cousine Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Cousine Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Cousine Nerd Font"
+
+[window]
+opacity = 0.9
