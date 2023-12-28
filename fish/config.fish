@@ -5,7 +5,7 @@ if status is-interactive
     alias venv="source ./venv/bin/activate.fish"
     alias night="brightnessctl set 1%;redshift -x;redshift -O 4800"
     alias uni="ranger /home/tobi/docs/UniversitySync/current_semester"
-    alias windoof="sudo grub-reboot 2;reboot"
+    alias windoof="sudo grub-reboot 2 && reboot"
     alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
     pyenv init - | source
     export PATH="$HOME/.cargo/bin:$PATH"
