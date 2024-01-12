@@ -12,3 +12,11 @@ if status is-interactive
     alias qs="ranger /home/tobi/data/quickshare"
 end
 
+# quit ranger when already inside a shell instead of opening a nested instance
+function ranger
+    if [ -z "$RANGER_LEVEL" ]
+        /usr/bin/ranger $argv
+    else
+        exit
+    end
+end
