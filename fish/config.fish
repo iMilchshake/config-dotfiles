@@ -10,6 +10,7 @@ if status is-interactive
     pyenv init - | source
     export PATH="$HOME/.cargo/bin:$PATH"
     alias qs="ranger /home/tobi/data/quickshare"
+    alias bm="~/scripts/bashmount"
 end
 
 # quit ranger when already inside a shell instead of opening a nested instance
