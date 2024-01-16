@@ -1,4 +1,16 @@
 configuration {
+    terminal: "alacritty";
+    run-command: "{cmd}";
+    /*
+    • -1: the currently focused monitor.
+    • -2: the currently focused window (that is, rofi will be displayed on top of  the  fo‐
+      cused window).
+    • -3:  Position of mouse (overrides the location setting to get normal context menu be‐
+      havior.)
+    • -4: the monitor with the focused window.
+    • -5: the monitor that shows the mouse pointer.Default: -5
+    */
+    m: "-1";
 /*	modi: "window,run,ssh";*/
 /*	font: "mono 12";*/
 /*	location: 0;*/
@@ -7,10 +19,8 @@ configuration {
 /*	fixed-num-lines: true;*/
 /*	show-icons: false;*/
 /*	terminal: "rofi-sensible-terminal";*/
-    terminal: "alacritty";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
-    run-command: "{cmd}";
 /*	run-list-command: "";*/
 /*	run-shell-command: "{terminal} -e {cmd}";*/
 /*	window-command: "wmctrl -i -R {window}";*/
@@ -36,7 +46,6 @@ configuration {
 /*	combi-modi: "window,run";*/
 /*	matching: "normal";*/
 /*	tokenize: true;*/
-/*	m: "-5";*/
 /*	filter: ;*/
 /*	dpi: -1;*/
 /*	threads: 0;*/
