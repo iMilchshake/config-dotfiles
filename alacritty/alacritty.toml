@@ -16,3 +16,12 @@ family = "Cousine Nerd Font"
 opacity = 0.9
 decorations = "None"
 padding = {x=5, y=5}
+
+[cursor]
+style = {shape="Beam", blinking="On"}
+vi_mode_style={shape="Block", blinking="Never"}
+unfocused_hollow = false
+
+[mouse]
+hide_when_typing = true
+
