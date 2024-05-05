@@ -107,6 +107,7 @@ WINDOW_ICONS = {
     'thunderbird': fa.icons['envelope'],
     'totem': fa.icons['play'],
     'urxvt': fa.icons['terminal'],
+    'vscodium': fa.icons['code'],
     'xfce4-terminal': fa.icons['terminal'],
     'xournal': fa.icons['file-alt'],
     'yelp': fa.icons['code'],
