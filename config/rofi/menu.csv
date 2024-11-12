@@ -1,0 +1,3 @@
+monitor setup,~/.config/rofi/scripts/monitor_layout.sh
+night,brightnessctl set 1%;redshift -x;redshift -O 4800
+day,brightnessctl set 100%;redshift -x

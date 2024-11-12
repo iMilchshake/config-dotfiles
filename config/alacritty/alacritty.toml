@@ -1,0 +1,20 @@
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+
+[window]
+opacity = 0.9
+decorations = "Full"
+padding = {x=5, y=5}
+
+[cursor]
+style = {shape="Beam", blinking="On"}
+vi_mode_style={shape="Block", blinking="Never"}
+unfocused_hollow = false
+
+[mouse]
+hide_when_typing = true
+
+[general]
+live_config_reload = true
+import = ["~/.config/alacritty/themes/nord.toml"]
+
