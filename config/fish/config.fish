@@ -7,7 +7,6 @@ if status is-interactive
     alias uni="ranger /home/tobi/docs/UniversitySync/current_semester"
     alias windoof="sudo grub-reboot 2 && reboot"
     alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
-    pyenv init - | source
     export PATH="$HOME/.cargo/bin:$PATH"
     alias qs="ranger /home/tobi/data/quickshare"
     alias bm="~/scripts/bashmount"
