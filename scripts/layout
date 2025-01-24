@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Configuration
+MAIN="DP-2"    # Primary monitor (165 Hz capable)
+SEC="HDMI-1"   # Secondary monitor (60 Hz)
+EXT="HDMI-2"   # External TV (60 Hz)
+
+set_default() {
+    xrandr --output "$EXT" --off
+    xrandr --output "$MAIN" --primary --mode 1920x1080 --rate 165 --pos 0x0
+    xrandr --output "$SEC" --mode 1920x1080 --rate 60 --right-of "$MAIN"
+    echo "Default layout activated: $MAIN (165Hz) + $SEC (60Hz)"
+}
+
+set_tv() {
+    xrandr --output "$SEC" --off
+    xrandr --output "$MAIN" --primary --mode 1920x1080 --rate 60 --pos 0x0
+    xrandr --output "$EXT" --mode 1920x1080 --rate 60 --same-as "$MAIN"
+    echo "TV layout activated: $MAIN (60Hz) + $EXT (60Hz)"
+}
+
+# Script usage
+if [ "$1" == "default" ]; then
+    set_default 
+elif [ "$1" == "tv" ]; then
+    set_tv 
+else
+    echo "Usage: layout {default|tv}"
+    exit 1
+fi
+
+exit 0
