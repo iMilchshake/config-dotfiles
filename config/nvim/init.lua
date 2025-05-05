@@ -660,6 +660,24 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+-- setup for markdown_oxide
+require("lspconfig").markdown_oxide.setup({
+  -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+  -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+  capabilities = vim.tbl_deep_extend(
+    'force',
+    capabilities,
+    {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
+      },
+    }
+  ),
+  on_attach = on_attach -- configure your on attach config
+})
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
@@ -706,7 +724,14 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp' },
+    {
+      name = 'nvim_lsp',
+      option = {
+        markdown_oxide = {
+          keyword_pattern = [[\(\k\| \|\/\|#\)\+]]
+        }
+      }
+    },
     { name = 'luasnip', priority = 0 },
     {
       name = 'path',
@@ -723,15 +748,3 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
--- https://github.com/neovim/neovim/issues/30985#issuecomment-2447329525
--- FIXME: TEMPORARY WORKAROUND -> REVERT WHEN FIXED
-for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
-  local default_diagnostic_handler = vim.lsp.handlers[method]
-  vim.lsp.handlers[method] = function(err, result, context, config)
-    if err ~= nil and err.code == -32802 then
-      return
-    end
-    return default_diagnostic_handler(err, result, context, config)
-  end
-end
