@@ -9,14 +9,29 @@ set_default() {
     xrandr --output "$EXT" --off
     xrandr --output "$MAIN" --primary --mode 1920x1080 --rate 165 --pos 0x0
     xrandr --output "$SEC" --mode 1920x1080 --rate 60 --right-of "$MAIN"
+    # sleep 2;
+    # setsid ~/.dotfiles/config/polybar/launch_multi_new.sh > /dev/null 2>&1 &
     echo "Default layout activated: $MAIN (165Hz) + $SEC (60Hz)"
 }
 
 set_tv() {
     xrandr --output "$SEC" --off
-    xrandr --output "$MAIN" --primary --mode 1920x1080 --rate 60 --pos 0x0
-    xrandr --output "$EXT" --mode 1920x1080 --rate 60 --same-as "$MAIN"
-    echo "TV layout activated: $MAIN (60Hz) + $EXT (60Hz)"
+    xrandr --output "$MAIN" --off #--mode 1920x1080 --rate 60 
+    xrandr --output "$EXT" --primary --mode 1920x1080 --rate 60 --left-of "$MAIN"
+
+    # sleep 2;
+    # setsid ~/.dotfiles/config/polybar/launch_multi_new.sh > /dev/null 2>&1 &
+    echo "tv layout activated: $MAIN (60hz) + $EXT (60hz)"
+}
+
+set_laptop() {
+    xrandr --output "$MAIN" --off
+    xrandr --output "$EXT" --off
+    xrandr --output "$SEC" --primary --mode 1920x1080 --rate 60 
+
+    # sleep 2;
+    # setsid ~/.dotfiles/config/polybar/launch_multi_new.sh > /dev/null 2>&1 &
+    echo "Laptop layout activated: $SEC (60Hz) as the only monitor"
 }
 
 # Script usage
@@ -24,8 +39,10 @@ if [ "$1" == "default" ]; then
     set_default 
 elif [ "$1" == "tv" ]; then
     set_tv 
+elif [ "$1" == "laptop" ]; then
+    set_laptop
 else
-    echo "Usage: layout {default|tv}"
+    echo "Usage: layout {default|tv|laptop}"
     exit 1
 fi
 
