@@ -154,12 +154,11 @@ configuration {
       directories-first: true;
       sorting-method:    "name";
   }
-
   modi: "combi";
   combi-modi: [drun, run, window, ssh];  
 
-  font: "Cousine Nerd 15";
-  line-margin: 0; 
+  font: "Cousine Nerd 13";
+  line-margin: 3; 
 
   /* display-ssh:    """; */
   /* display-run:    ""; */
@@ -178,9 +177,9 @@ configuration {
 @theme "nord" 
 listview {
 	lines: 8;
-	columns: 1;
+	columns: 2;
 }
 
 window {
-	width: 25%;
+	width: 600px;
 }
