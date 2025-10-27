@@ -286,7 +286,7 @@ require('lazy').setup({
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    branch = 'master',
     dependencies = {
       'nvim-lua/plenary.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -646,6 +646,10 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+-- Set position encoding to fix position_encoding warning
+capabilities.general = capabilities.general or {}
+capabilities.general.positionEncodings = { 'utf-16', 'utf-8' }
+
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
@@ -655,17 +659,19 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
+    vim.lsp.config(server_name, {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
-    }
+      position_encoding = 'utf-16',
+    })
+    vim.lsp.enable(server_name)
   end,
 }
 
 -- setup for markdown_oxide
-require("lspconfig").markdown_oxide.setup({
+vim.lsp.config('markdown_oxide', {
   -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
   -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
   capabilities = vim.tbl_deep_extend(
@@ -679,8 +685,10 @@ require("lspconfig").markdown_oxide.setup({
       },
     }
   ),
-  on_attach = on_attach -- configure your on attach config
+  on_attach = on_attach, -- configure your on attach config
+  position_encoding = 'utf-16',
 })
+vim.lsp.enable('markdown_oxide')
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
